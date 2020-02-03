@@ -1,0 +1,12 @@
+.content {
+    grid-area: content;
+    background: #ccc;
+}
+
+.posts {
+    margin-left: 20px;
+}
+
+.item {
+    color: chartreuse;
+}
