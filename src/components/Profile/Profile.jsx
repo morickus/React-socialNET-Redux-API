@@ -1,17 +1,17 @@
 import React from 'react';
 import s from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-function Profile() {
+function Profile(props) {
     return (
-        <main className={s.content}>
-            <div>
-                <img alt='banner' src='https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' />
-            </div>
-            <div>
-                ava + description
-            </div>
-            <MyPosts />
+        <main>
+            <ProfileInfo />
+            <MyPosts 
+                posts={props.state.posts} 
+                addPost={props.addPost} 
+                updateNewPostText={props.updateNewPostText} 
+                newPostText={props.state.newPostText} />
         </main>
     );
 }

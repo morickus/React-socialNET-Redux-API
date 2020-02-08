@@ -1,8 +1,7 @@
-.content {
-    grid-area: content;
-    background: #ccc;
+.posts {
+    
 }
 
-.posts {
-    margin-left: 20px;
+.postsBlock {
+    padding: 15px;
 }
