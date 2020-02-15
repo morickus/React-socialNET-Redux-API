@@ -4,11 +4,15 @@
 }
 
 .dialogsItems {
-    padding: 10px;
+    padding: 20px;
 }
 
-.dialog.active {
-    color: darkblue;
+.dialogsItems a {
+    text-decoration: none;
+}
+
+.dialogsItems a.active {
+    color: green;
 }
 
 .messages {

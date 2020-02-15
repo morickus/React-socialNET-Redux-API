@@ -15,10 +15,10 @@ function Dialogs(props) {
     }
 
     let dialogsElements = props.dialogsPage.dialogs
-        .map(d => <DialogItem name={d.name} id={d.id} />);
+        .map(d => <DialogItem name={d.name} id={d.id} key={d.id} activeClassName={s.active} />);
 
     let messagesElements = props.dialogsPage.messages
-        .map(m => <Message message={m.message} />);
+        .map(m => <Message message={m.message} key={m.id} />);
 
     return (
         <div className={s.dialogs}>
@@ -28,6 +28,7 @@ function Dialogs(props) {
             <div className={s.messages}>
                 {messagesElements}
                 <div>
+                    <hr/>
                     <span>New message</span>
                     <div><textarea onChange={onMessageChange} value={props.dialogsPage.newMessageText} /></div>
                     <div><button onClick={addMessage}>Add message</button></div>
