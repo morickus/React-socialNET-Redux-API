@@ -1,0 +1,22 @@
+.userPhoto {
+    width: 100px;
+    height: 100px;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.pagination {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.pagination span {
+    display: inline-block;
+    color: #fff;
+    background: darkblue;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
