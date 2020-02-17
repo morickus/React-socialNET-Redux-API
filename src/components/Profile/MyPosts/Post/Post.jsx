@@ -5,7 +5,7 @@ function Post(props) {
     return (
         <div className={s.item}>
             <img alt="ava" src="https://img.pngio.com/png-avatar-108-images-in-collection-page-3-png-avatar-300_300.png" />
-            {props.message}
+            <span>{props.message}</span>
             <div>
                 <span>{props.likesCount} like</span>
             </div>
