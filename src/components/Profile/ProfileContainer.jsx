@@ -1,23 +1,18 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import { setUserProfile, toggleIsFetching } from '../../redux/profile-reducer';
-import { withRouter } from 'react-router-dom';
-import { profileAPI } from '../../api/api';
+import { getUserProfile } from '../../redux/profile-reducer';
+import { withRouter, Redirect } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        let userId = this.props.match.params.userId;
-        if (!userId) userId = 2;
-        profileAPI.profile(userId).then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUserProfile(data);
-            });
+        this.props.getUserProfile(this.props.match.params.userId);
     }
 
     render() {
+        if(!this.props.isAuth) return <Redirect to="/login" />;
+
         return (
             <Profile {...this.props} profile={this.props.profile} isFetching={this.props.isFetching} />
         )
@@ -26,9 +21,10 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     isFetching: state.profilePage.isFetching,
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
+    isAuth: state.auth.isAuth
 });
 
 let withUrlDataContainerComponent = withRouter(ProfileContainer);
 
-export default connect(mapStateToProps, { setUserProfile, toggleIsFetching })(withUrlDataContainerComponent);
+export default connect(mapStateToProps, { getUserProfile })(withUrlDataContainerComponent);

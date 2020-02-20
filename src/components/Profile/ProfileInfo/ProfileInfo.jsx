@@ -14,7 +14,7 @@ function ProfileInfo(props) {
                 <img alt='banner' src='https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' />
             </div>
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large} alt="ava"/>
+                <img src={props.profile.photos.large ? props.profile.photos.large : 'https://okeygeek.ru/wp-content/uploads/2017/09/vk-stiker-2.png'} alt="ava"/>
                 ava + description
             </div>
         </div>
