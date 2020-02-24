@@ -2,18 +2,13 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import Message from './Message/Message';
 import DialogItem from './DialogItem/DialogItem';
-import { Redirect } from 'react-router-dom';
+import { reduxForm } from 'redux-form';
+import { AddMessageForm } from './AddMessageForm/AddMessageForm';
+
+
+const DialogsReduxForm = reduxForm({ form: 'dialogs' })(AddMessageForm);
 
 function Dialogs(props) {
-
-    let addMessage = () => {
-        props.addMessageActionCreator();
-    }
-
-    let onMessageChange = (e) => {
-        let text = e.target.value;
-        props.onMessageChangeActionCreator(text);
-    }
 
     let dialogsElements = props.dialogsPage.dialogs
         .map(d => <DialogItem name={d.name} id={d.id} key={d.id} activeClassName={s.active} />);
@@ -21,7 +16,9 @@ function Dialogs(props) {
     let messagesElements = props.dialogsPage.messages
         .map(m => <Message message={m.message} key={m.id} />);
 
-    if(!props.isAuth) return <Redirect to="/login" />;
+    let addMessage = (formData) => {
+        props.addMessageActionCreator(formData.textBody);
+    }
 
     return (
         <div className={s.dialogs}>
@@ -30,12 +27,7 @@ function Dialogs(props) {
             </div>
             <div className={s.messages}>
                 {messagesElements}
-                <div>
-                    <hr/>
-                    <span>New message</span>
-                    <div><textarea onChange={onMessageChange} value={props.dialogsPage.newMessageText} /></div>
-                    <div><button onClick={addMessage}>Add message</button></div>
-                </div>
+                <DialogsReduxForm onSubmit={addMessage} />
             </div>
         </div>
     );
