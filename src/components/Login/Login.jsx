@@ -1,6 +1,6 @@
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { Element } from '../common/FormsControls/FormsControls';
+import { reduxForm } from 'redux-form';
+import { Element, createField } from '../common/FormsControls/FormsControls';
 import { required } from '../../utils/validator/validator';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth-reducer';
@@ -9,20 +9,20 @@ import style from '../common/FormsControls/FormsControls.module.css';
 
 const Input = Element("input");
 
-function LoginForm(props) {
+function LoginForm({handleSubmit, error}) {
     return (
-        <form onSubmit={props.handleSubmit}>
-            {props.error && <div className={style.formSumaryError}>{props.error}</div>}
+        <form onSubmit={handleSubmit}>
+            {error && <div className={style.formSumaryError}>{error}</div>}
             <div>
                 <label htmlFor="email">Email</label>
-                <Field name="email" placeholder='Email' component={Input} validate={[required]} type="text" />
+                {createField("Email", "email", Input, [required], "text")}
             </div>
             <div>
                 <label htmlFor="password">Password</label>
-                <Field name="password" placeholder='Password' component={Input} validate={[required]} type="password" />
+                {createField("Password", "password", Input, [required], "password")}
             </div>
             <div>
-                <Field name="rememberMe" component="input" type="checkbox" />
+                {createField(null, "rememberMe", "input", null, "checkbox")}
                 <label htmlFor="rememberMe">remember me</label>
             </div>
             <div>

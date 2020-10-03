@@ -1,44 +1,17 @@
 import React from 'react';
-import styles from './users.module.css';
-import userPhoto from '../../assets/images/users.png';
-import { NavLink } from 'react-router-dom';
+import Paginator from '../common/Paginator/Paginator';
+import User from './User';
 
-function Users(props) {
+const Users = ({ currentPage, onPageChange, totalUsersCount, pageSize, users, ...props }) => {
+	return (
+		<div>
+			
+			<Paginator currentPage={currentPage} onPageChange={onPageChange} totalUsersCount={totalUsersCount} pageSize={pageSize} />
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+			{users.map(u => <User user={u} key={u.id} followingInProgress={props.followingInProgress} follow={props.follow} unfollow={props.unfollow} /> )}
 
-    let pages = [];
-    for (let i = props.currentPage; i <= pagesCount && i <= props.currentPage + 9; i++) {
-        pages.push(i);
-    }
-
-    return (
-        <div>
-            <div className={styles.pagination}>
-                {pages.map(p => <span key={p} className={props.currentPage === p ? styles.selectedPage : null}
-                    onClick={(e) => { props.onPageChange(p) }}>{p}</span>)}
-            </div>
-            {props.users.map(u =>
-                <div key={u.id}>
-                    <span>
-                        <div><NavLink to={'/profile/' + u.id}><img src={u.photos.small != null ? u.photos.small : userPhoto} alt="ava" className={styles.userPhoto} /></NavLink></div>
-                        <div>
-                            {u.followed
-                                ? <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                onClick={() => { props.unfollow(u.id); }} >Unfollow</button>
-                                : <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                onClick={() => { props.follow(u.id); }} >Follow</button>
-                            }
-                        </div>
-                    </span>
-                    <span>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </span>
-                </div>
-            )}
-        </div>
-    )
+		</div>
+	)
 }
 
 export default Users;

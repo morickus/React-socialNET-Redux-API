@@ -14,9 +14,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './redux/app-reduce';
 import Preloader from './components/common/Preloader/Preloader';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from "./redux/redux-store";
+
 
 class App extends Component {
 
@@ -28,23 +26,20 @@ class App extends Component {
     if (!this.props.initialized) return <Preloader />
 
     return (
-      <BrowserRouter>
-        <Provider store={store}>
-          <div className='app-wrapper'>
-            <HeaderContainer />
-            <Navbar />
-            <div className='app-wrapper-content'>
-              <Route path='/dialogs' render={() => <DialogsContainer />} />
-              <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
-              <Route path='/users' render={() => <UsersContainer />} />
-              <Route path='/news' render={() => <News />} />
-              <Route path='/music' render={() => <Music />} />
-              <Route path='/setting' render={() => <Setting />} />
-              <Route path='/login' render={() => <Login />} />
-            </div>
-          </div>
-        </Provider>
-      </BrowserRouter>
+      <div className='app-wrapper'>
+        <HeaderContainer />
+        <Navbar />
+        <div className='app-wrapper-content'>
+          <Route path='/dialogs' render={() => <DialogsContainer />} />
+          <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+          <Route path='/users' render={() => <UsersContainer />} />
+          <Route path='/news' render={() => <News />} />
+          <Route path='/music' render={() => <Music />} />
+          <Route path='/setting' render={() => <Setting />} />
+          <Route path='/login' render={() => <Login />} />
+        </div>
+      </div>
+
     );
   }
 }

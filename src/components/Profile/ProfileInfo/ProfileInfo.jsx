@@ -4,19 +4,16 @@ import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatuWithHooks from './ProfileStatusWithHooks';
 
 
-function ProfileInfo(props) {
-    if(!props.profile || props.isFetching) {
+const ProfileInfo = ({profile, isFetching, status, updateStatus}) => {
+    if(!profile || isFetching) {
         return <Preloader />
     }
 
     return (
         <div>
-            <div>
-                {/* <img alt='banner' src='https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' /> */}
-            </div>
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large ? props.profile.photos.large : 'https://okeygeek.ru/wp-content/uploads/2017/09/vk-stiker-2.png'} alt="ava"/>
-                <ProfileStatuWithHooks status={props.status} updateStatus={props.updateStatus} />
+                <img src={profile.photos.large ? profile.photos.large : 'https://okeygeek.ru/wp-content/uploads/2017/09/vk-stiker-2.png'} alt="ava"/>
+                <ProfileStatuWithHooks status={status} updateStatus={updateStatus} />
             </div>
         </div>
     );
