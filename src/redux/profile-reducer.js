@@ -1,10 +1,10 @@
 import { usersAPI, profileAPI } from "../api/api";
 
-const ADD_POST = 'ADD-POST';
-const SET_USER_PROFILE = 'SET-USER-PROFILE';
-const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
-const SET_STATUS = 'SET-STATUS';
-const DELETE_POST = 'DELETE-POST';
+const ADD_POST = 'profile/ADD-POST';
+const SET_USER_PROFILE = 'profile/SET-USER-PROFILE';
+const TOGGLE_IS_FETCHING = 'profile/TOGGLE-IS-FETCHING';
+const SET_STATUS = 'profile/SET-STATUS';
+const DELETE_POST = 'profile/DELETE-POST';
 
 let initialState = {
     posts: [
