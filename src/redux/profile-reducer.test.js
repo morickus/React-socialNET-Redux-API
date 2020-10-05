@@ -1,6 +1,4 @@
-import React from 'react';
 import profileReducer, { addPostActionCreator, deletePost } from './profile-reducer';
-import App from '../App';
 
 let state = {
 	posts: [
