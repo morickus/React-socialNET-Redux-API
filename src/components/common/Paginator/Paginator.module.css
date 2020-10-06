@@ -1,17 +1,38 @@
-.selectedPage {
-    font-weight: bold;
-}
-
 .pagination {
-    width: 500px;
-    margin: 0 auto;
+    margin: 20px;
 }
 
 .pagination span {
-    display: inline-block;
-    color: #fff;
-    background: darkblue;
-    margin: 5px;
-    padding: 5px;
+    color: black;
+    background: #fff;
+    padding: 6px 16px 10px;
+    border: 2px solid #548eaa;
     cursor: pointer;
+    margin: 3px;
+}
+
+.selectedPage {
+    background: #5f8ca3 !important;
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.pagination button {
+    padding: 11px 16px;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid #548eaa;
+}
+
+.pagination .buttonLeft {
+    margin-right: 9px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination .buttonRight {
+    margin-left: 9px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
