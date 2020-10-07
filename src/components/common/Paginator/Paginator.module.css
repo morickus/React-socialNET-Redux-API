@@ -23,16 +23,16 @@
     outline: none;
     cursor: pointer;
     border: 2px solid #548eaa;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .pagination .buttonLeft {
-    margin-right: 9px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
 .pagination .buttonRight {
-    margin-left: 9px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
