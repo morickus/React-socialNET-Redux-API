@@ -1,15 +1,42 @@
 .header {
     grid-area: header;
-    background: green;
+    background: #224b7a;
     color: #fff;
 }
-
-.header img {
-    width: 45px;
-    padding: 7px;
-}
-
 .loginBlock {
     float: right;
-    padding: 19px;
+    padding: 6px;
+    margin-right: 10px;
+}
+.logo {
+    float: left;
+    margin: 5px;
+    background: #fff;
+    border-radius: 50%;
+}
+.logo img {
+    width: 35px;
+    height: 35px;
+    padding: 6px 10px;
+}
+.loginBlock span {
+    float: right;
+}
+.buttonAuth {
+    padding: 4px 16px;
+    margin-top: 3px;
+    transition: .1s;
+    float: right;
+    background: #548eaa;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.buttonAuth:hover {
+    background: #226f96;
+}
+.loginBlock a {
+    margin-top: 11px;
 }

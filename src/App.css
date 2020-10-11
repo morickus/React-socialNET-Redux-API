@@ -1,16 +1,22 @@
+body {
+  background: #96aec3;
+}
+
 .app-wrapper {
   display: grid;
-  width: 1200px;
+  width: 1280px;
   margin: 0 auto;
   grid-template-areas:
-      "header header"
-      "nav content";
+    "header header"
+    "nav content";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  /* grid-gap: 10px; */
+  grid-gap: 20px;
 }
 
 .app-wrapper-content {
-    grid-area: content;
-    background: #ccc;
+  grid-area: content;
+  background: #224b7a;
+  color: #fff;
+  min-height: 240px;
 }

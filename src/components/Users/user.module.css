@@ -5,6 +5,8 @@
 }
 .userBlock {
     margin: 20px 40px;
+    padding: 0 10px 15px;
+    border-bottom: 2px solid #ccc;
 }
 .follow {
     padding: 6px 21px 6px;

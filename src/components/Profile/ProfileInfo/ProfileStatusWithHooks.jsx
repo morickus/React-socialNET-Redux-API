@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import s from './ProfileStatus.module.css';
 
-const ProfileStatuWithHooks = (props) => {
+const ProfileStatusWithHooks = (props) => {
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status);
 
@@ -25,8 +25,8 @@ const ProfileStatuWithHooks = (props) => {
     return (
         <div>
             { !editMode &&
-                <div className={s.status}>
-                    <span onClick={ activateEditMode } >{props.status || "------"}</span>
+                <div className={props.isOwner && s.status}>
+                    <b>Status</b>: <span onClick={ () => { if(props.isOwner) activateEditMode() } } >{props.status || "------"}</span>
                 </div>
             }
             { editMode &&
@@ -38,4 +38,4 @@ const ProfileStatuWithHooks = (props) => {
     )
 }
 
-export default ProfileStatuWithHooks;
+export default ProfileStatusWithHooks;

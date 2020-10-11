@@ -17,9 +17,10 @@
     color: red;
 }
 
-.formSumaryError {
+.formSummaryError {
     display: inline-block;
-    padding: 10px;
+    /* padding: 10px; */
+    margin: 10px 0;
     color: red;
-    background: rgb(97, 0, 0);
+    /* background: rgb(97, 0, 0); */
 }

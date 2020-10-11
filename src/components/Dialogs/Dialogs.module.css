@@ -9,10 +9,11 @@
 
 .dialogsItems a {
     text-decoration: none;
+    color: #fff;
 }
 
 .dialogsItems a.active {
-    color: green;
+    background: #5682a3;
 }
 
 .messages {

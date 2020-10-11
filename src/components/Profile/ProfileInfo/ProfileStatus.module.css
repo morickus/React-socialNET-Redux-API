@@ -1,13 +1,6 @@
-.status {
-    margin-top: 10px;
-}
-
-.status span {
-    padding: 5px;
-}
+.status span {}
 
 .status span:hover {
-    cursor: pointer;
-    background: #f0f2f5;
-    color: rgb(21, 21, 21);
+  cursor: pointer;
+  background: #548eaa;
 }
