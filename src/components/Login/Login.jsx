@@ -10,7 +10,7 @@ import s from './Login.module.css'
 
 const Input = Element("input");
 
-function LoginForm({ handleSubmit, error }) {
+function LoginForm({ handleSubmit, error, captchaUrl }) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -25,6 +25,8 @@ function LoginForm({ handleSubmit, error }) {
         <label htmlFor="rememberMe">remember me</label>
         {createField("", "rememberMe", Input, [], "checkbox")}
       </div>
+      <div>{ captchaUrl && <img src={captchaUrl} />}</div>
+      <div>{ captchaUrl && createField("Symbols from image", "captcha", Input, [required], "text") }</div>
       <div>
         <button>Login</button>
       </div>
@@ -37,7 +39,7 @@ const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
 
 function Login(props) {
   let onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe);
+    props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
   }
 
   if (props.isAuth) {
@@ -47,12 +49,13 @@ function Login(props) {
   return (
     <div className={s.login}>
       <h2>LOGIN</h2>
-      <LoginReduxForm onSubmit={onSubmit} />
+      <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
+  captchaUrl: state.auth.captchaUrl,
   isAuth: state.auth.isAuth
 })
 
